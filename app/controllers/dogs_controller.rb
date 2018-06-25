@@ -78,3 +78,5 @@ class DogsController < ApplicationController
     params.require(:dog).permit(:name, :breed, :child_id)
   end
 end
+
+# edited

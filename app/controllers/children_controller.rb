@@ -73,3 +73,5 @@ class ChildrenController < ApplicationController
       params.require(:child).permit(:first_name, :last_name, :dob)
     end
 end
+
+# edited
