@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @child.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @child.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @child.dob %>
+</p>
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>
+<%= link_to 'New Dog', new_child_dog_path(@child) %>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Breed</th>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <% if (dog.child.id == @child.id) %>
+        <tr>
+          <td><%= dog.name %></td>
+          <td><%= dog.breed %></td>
+          <td><%= link_to 'See More', child_dog_path(@child, dog) %></td>
+          <td><%= link_to 'Edit', edit_child_dog_path(@child) %></td>
+          <td><%= link_to 'Destroy', child_dog_path(@child, dog), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
